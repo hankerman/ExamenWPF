@@ -1,0 +1,56 @@
+﻿<Window x:Class="ExamenWPF.ViewModel.WindowCRUD"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ExamenWPF.Convers"
+        mc:Ignorable="d"
+        Title="WindowCRUD" Height="450" Width="600">
+    <Window.Resources>
+        <local:ConversYear x:Key="ConverterYear"/>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <StackPanel>
+            <GroupBox Header="Название">
+                <TextBlock TextWrapping="Wrap"
+                         Text="{Binding Path=Name}"/>
+            </GroupBox>
+            <GroupBox Header="Тег/Жанр">
+                <TextBox TextWrapping="Wrap"
+                         Text="{Binding Path=Teg}"/>
+            </GroupBox>
+            <GroupBox Header="Описание">
+                <TextBox TextWrapping="Wrap"
+                         Text="{Binding Path=Description}"/>
+            </GroupBox>
+            <GroupBox Header="Год выпуска">
+                <TextBox TextWrapping="Wrap"
+                         Text="{Binding Path=YearOfRelease, StringFormat='{}{0:d}',
+                    Converter={StaticResource ConverterYear}}"/>
+            </GroupBox>
+            <GroupBox Header="Страна выпуска">
+                <TextBox TextWrapping="Wrap"
+                         Text="{Binding Path=CountryOfIssue}"/>
+            </GroupBox>
+            <GroupBox Header="Кинокомпания">
+                <TextBox TextWrapping="Wrap"
+                         Text="{Binding Path=FilmCompany}"/>
+            </GroupBox>
+        </StackPanel>
+        <Grid Grid.Row="1">
+            <UniformGrid Width="150"
+                             Columns="2">
+                <Button Content="Сохранить"
+                            Margin="0 0 5 5"
+                        Click="Save_Click"/>
+                <Button Content="Отменить" 
+                            Margin="5 0 0 5"
+                        Click="Clouse_Click"/>
+            </UniformGrid>
+        </Grid>
+    </Grid>
+</Window>

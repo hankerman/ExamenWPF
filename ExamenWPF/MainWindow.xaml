@@ -1,0 +1,93 @@
+﻿<Window x:Class="ExamenWPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ExamenWPF"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0"
+              Margin="15">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <DockPanel Height="20"
+                           Width="300"
+                           HorizontalAlignment="Right">
+                <Button Content="Поиск"
+                            DockPanel.Dock="Right"/>
+                <TextBox/>
+            </DockPanel>
+            <UniformGrid Width="300"
+                             HorizontalAlignment="Left"
+                             Columns="3">
+                <Button Content="Добавить"
+                        Click="Add_Click"/>
+                <Button Content="Удалить"
+                        Click="DeleteMovie_Click"/>
+                <Button Content="Изменить"
+                        Click="ModifyMovie_Click"/>
+
+
+            </UniformGrid>
+        </Grid>
+        <ListView Grid.Row="1"
+                  ItemsSource="{Binding Path=Movies}"
+                  ScrollViewer.VerticalScrollBarVisibility="Auto"
+                  ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                  x:Name="MoviesLV">
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel HorizontalAlignment="Center"/>
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Viewbox MaxWidth="200">
+                        <Border Background="White"
+                    CornerRadius="25"
+                    BorderBrush="Black"
+                    BorderThickness="2"
+                    Width="170">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+                                <TextBlock HorizontalAlignment="Center"
+                               FontWeight="Bold"
+                               TextAlignment="Center"
+                               TextWrapping="Wrap">
+                                    <Run FontSize="15" Text="{Binding Path=Name}"/>
+                                    <LineBreak/>
+                                    <Run Text="{Binding Path=CountryOfIssue}"/>
+                                    <Run Text="{Binding Path=YearOfRelease, StringFormat=' {0} год'}"/>
+                                </TextBlock>
+                                <StackPanel Grid.Row="1">
+                                    <TextBlock Text="{Binding Path=Description}"
+                                   TextAlignment="Center"
+                                   TextWrapping="Wrap"
+                                   />
+                                    <TextBlock Text="{Binding Path=FilmCompany, StringFormat='Кинокомпания {0}'}"
+                                   TextAlignment="Center"
+                                               TextWrapping="Wrap"/>
+                                    <TextBlock Text="{Binding Path=Teg}"
+                                   TextAlignment="Center"
+                                   TextWrapping="Wrap"/>
+                                </StackPanel>
+                            </Grid>
+                        </Border>
+                    </Viewbox>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+                
+                    
+            
+        </ListView>
+    </Grid>
+</Window>
