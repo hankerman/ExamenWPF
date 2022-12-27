@@ -55,5 +55,10 @@ namespace ExamenWPF
             windowCRUD.ShowDialog();
             _vm.ModifiMovies();
         }
+
+        private void Search_Click(object sender, RoutedEventArgs e)
+        {
+            _vm.UpdateListMovie();
+        }
     }
 }

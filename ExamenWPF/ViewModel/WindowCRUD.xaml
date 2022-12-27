@@ -15,30 +15,43 @@
             <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
         <StackPanel>
-            <GroupBox Header="Название">
-                <TextBlock TextWrapping="Wrap"
-                         Text="{Binding Path=Name}"/>
-            </GroupBox>
-            <GroupBox Header="Тег/Жанр">
+            <GroupBox Header="Название"
+                      FontSize="17">
                 <TextBox TextWrapping="Wrap"
-                         Text="{Binding Path=Teg}"/>
+                         Text="{Binding Path=Name}"
+                         x:Name="NameTextBox"
+                         FontSize="14"/>
             </GroupBox>
-            <GroupBox Header="Описание">
+            <GroupBox Header="Тег/Жанр"
+                      FontSize="17">
                 <TextBox TextWrapping="Wrap"
-                         Text="{Binding Path=Description}"/>
+                         Text="{Binding Path=Teg}"
+                         FontSize="14"/>
             </GroupBox>
-            <GroupBox Header="Год выпуска">
+            <GroupBox Header="Описание"
+                      FontSize="17">
+                <TextBox TextWrapping="Wrap"
+                         Text="{Binding Path=Description}"
+                         FontSize="14"/>
+            </GroupBox>
+            <GroupBox Header="Год выпуска"
+                      FontSize="17">
                 <TextBox TextWrapping="Wrap"
                          Text="{Binding Path=YearOfRelease, StringFormat='{}{0:d}',
-                    Converter={StaticResource ConverterYear}}"/>
+                    Converter={StaticResource ConverterYear}}"
+                         FontSize="14"/>
             </GroupBox>
-            <GroupBox Header="Страна выпуска">
+            <GroupBox Header="Страна выпуска"
+                      FontSize="17">
                 <TextBox TextWrapping="Wrap"
-                         Text="{Binding Path=CountryOfIssue}"/>
+                         Text="{Binding Path=CountryOfIssue}"
+                         FontSize="14"/>
             </GroupBox>
-            <GroupBox Header="Кинокомпания">
+            <GroupBox Header="Кинокомпания"
+                      FontSize="17">
                 <TextBox TextWrapping="Wrap"
-                         Text="{Binding Path=FilmCompany}"/>
+                         Text="{Binding Path=FilmCompany}"
+                         FontSize="14"/>
             </GroupBox>
         </StackPanel>
         <Grid Grid.Row="1">

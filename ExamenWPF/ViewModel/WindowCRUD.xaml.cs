@@ -26,6 +26,12 @@ namespace ExamenWPF.ViewModel
             InitializeComponent();
             _vm = new MovieCRUD_VM(movie);
             this.DataContext = _vm;
+            this.Title = "Добавление";
+            if (movie != null)
+            {
+                NameTextBox.IsReadOnly = true;
+                this.Title = "Изменение";
+            }
         }
 
         private void Clouse_Click(object sender, RoutedEventArgs e)

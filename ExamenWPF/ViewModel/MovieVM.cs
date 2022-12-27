@@ -17,6 +17,28 @@ namespace ExamenWPF.ViewModel
         }
         public List<Movie> Movies { get; set; }
         public List<Movie> SelectedMovies { get; set; }
+        private string _searchText;
+        public string SearchText
+        {
+            get { return _searchText; }
+            set
+            {
+                _searchText = value;
+                OnPropertyChanged();
+            }
+        }
+        public void UpdateListMovie()
+        {
+            Movies = MovieDB.Context.Movies.Where(x => _searchText == String.Empty || _searchText == null
+                            || (int.TryParse(_searchText, out int year) && x.YearOfRelease == year)
+                            || (x.Name.ToLower().Contains(_searchText.ToLower()))
+                            || (x.Description.ToLower().Contains(_searchText.ToLower()))
+                            || (x.CountryOfIssue.ToLower().Contains(_searchText.ToLower()))
+                            || (x.FilmCompany.ToLower().Contains(_searchText.ToLower()))
+                            || (x.Teg.ToLower().Contains(_searchText.ToLower()))).ToList();
+            OnPropertyChanged(nameof(Movies));
+            
+        }
         public void DeleteMovies()
         {
             foreach (var r in SelectedMovies)

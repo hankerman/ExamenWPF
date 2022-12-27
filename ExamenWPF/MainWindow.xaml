@@ -5,8 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ExamenWPF"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Фильмотека" Height="450" Width="800">
     <Grid>
+        <Grid.Background>
+            <LinearGradientBrush>
+                <GradientStop Color="#FFB3F587" Offset="0"/>
+                <GradientStop Color="#FF68BEF5" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition/>
@@ -20,8 +26,9 @@
                            Width="300"
                            HorizontalAlignment="Right">
                 <Button Content="Поиск"
-                            DockPanel.Dock="Right"/>
-                <TextBox/>
+                            DockPanel.Dock="Right"
+                        Click="Search_Click"/>
+                <TextBox Text="{Binding Path=SearchText}"/>
             </DockPanel>
             <UniformGrid Width="300"
                              HorizontalAlignment="Left"
@@ -41,6 +48,12 @@
                   ScrollViewer.VerticalScrollBarVisibility="Auto"
                   ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                   x:Name="MoviesLV">
+            <ListView.Background>
+                <LinearGradientBrush>
+                    <GradientStop Color="#FFB3F587" Offset="0"/>
+                    <GradientStop Color="#FF68BEF5" Offset="1"/>
+                </LinearGradientBrush>
+            </ListView.Background>
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
                     <WrapPanel HorizontalAlignment="Center"/>
