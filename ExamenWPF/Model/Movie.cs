@@ -15,5 +15,6 @@ namespace ExamenWPF.Model
         public string CountryOfIssue { get; set; }
         public string FilmCompany { get; set; }
         public string Genre { get; set; }
+        
     }
 }

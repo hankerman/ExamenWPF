@@ -60,5 +60,7 @@ namespace ExamenWPF
         {
             _vm.UpdateListMovie();
         }
+
+        
     }
 }
