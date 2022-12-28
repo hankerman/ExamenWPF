@@ -14,56 +14,59 @@
             <RowDefinition/>
             <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
-        <StackPanel>
-            <GroupBox Header="Название"
+        <ScrollViewer VerticalScrollBarVisibility="Auto">
+            <StackPanel>
+                <GroupBox Header="Название"
                       FontSize="17">
-                <TextBox TextWrapping="Wrap"
+                    <TextBox TextWrapping="Wrap"
                          Text="{Binding Path=Name}"
                          x:Name="NameTextBox"
                          FontSize="14"/>
-            </GroupBox>
-            <GroupBox Header="Тег/Жанр"
+                </GroupBox>
+                <GroupBox Header="Тег/Жанр"
                       FontSize="17">
-                <TextBox TextWrapping="Wrap"
+                    <TextBox TextWrapping="Wrap"
                          Text="{Binding Path=Teg}"
                          FontSize="14"/>
-            </GroupBox>
-            <GroupBox Header="Описание"
+                </GroupBox>
+                <GroupBox Header="Описание"
                       FontSize="17">
-                <TextBox TextWrapping="Wrap"
+                    <TextBox TextWrapping="Wrap"
                          Text="{Binding Path=Description}"
                          FontSize="14"/>
-            </GroupBox>
-            <GroupBox Header="Год выпуска"
+                </GroupBox>
+                <GroupBox Header="Год выпуска"
                       FontSize="17">
-                <TextBox TextWrapping="Wrap"
+                    <TextBox TextWrapping="Wrap"
                          Text="{Binding Path=YearOfRelease, StringFormat='{}{0:d}',
                     Converter={StaticResource ConverterYear}}"
                          FontSize="14"/>
-            </GroupBox>
-            <GroupBox Header="Страна выпуска"
+                </GroupBox>
+                <GroupBox Header="Страна выпуска"
                       FontSize="17">
-                <TextBox TextWrapping="Wrap"
+                    <TextBox TextWrapping="Wrap"
                          Text="{Binding Path=CountryOfIssue}"
                          FontSize="14"/>
-            </GroupBox>
-            <GroupBox Header="Кинокомпания"
+                </GroupBox>
+                <GroupBox Header="Кинокомпания"
                       FontSize="17">
-                <TextBox TextWrapping="Wrap"
+                    <TextBox TextWrapping="Wrap"
                          Text="{Binding Path=FilmCompany}"
                          FontSize="14"/>
-            </GroupBox>
-            <GroupBox Header="Жанр"
+                </GroupBox>
+                <GroupBox Header="Жанр"
                       FontSize="17">
-                <ComboBox x:Name="GenreBox" SelectedItem="{Binding Path=CurrentMovie.Genre}">
-                    <ComboBox.ItemTemplate>
-                        <DataTemplate>
-                            <TextBlock Text="{Binding}"/>
-                        </DataTemplate>
-                    </ComboBox.ItemTemplate>
-                </ComboBox>
-            </GroupBox>
-        </StackPanel>
+                    <ComboBox x:Name="GenreBox" SelectedItem="{Binding Path=CurrentMovie.Genre}">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding}"/>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                </GroupBox>
+            </StackPanel>
+        </ScrollViewer>
+        
         <Grid Grid.Row="1">
             <UniformGrid Width="150"
                              Columns="2">
