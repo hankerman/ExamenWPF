@@ -22,7 +22,7 @@ namespace ExamenWPF.ViewModel
                 _currentMovie.Description = movie.Description;
                 _currentMovie.CountryOfIssue = movie.CountryOfIssue;
                 _currentMovie.FilmCompany = movie.FilmCompany;
-                
+                _currentMovie.Genre = movie.Genre;
             }
         }
         private Movie _currentMovie;
@@ -85,8 +85,37 @@ namespace ExamenWPF.ViewModel
                 OnPropertyChanged();
             }
         }
+        public string Genre
+        {
+            get => _currentMovie.Genre;
+            set
+            {
+                _currentMovie.Genre = value;
+                OnPropertyChanged();
+            }
+        }
+        private List<string> _genres;
+        public List<string> Genres 
+        { get => _genres;
+            set
+            {
+                _genres = value;
+                OnPropertyChanged();
+            }
+        }
+
         public void SaveMovie()
         {
+            //gproverka filma
+
+            //if okay valid
+
+            //if (MovieDB.Context.Movies.FirstOrDefault(x=>x.Name == CurrentMovie.Name) == null)
+            //{
+            //    MovieDB.Context.Movies.Add(CurrentMovie);
+            //}
+            //else { 
+            //}
             for(int i = 0; i < MovieDB.Context.Movies.Count; i++)
             {
                 if(MovieDB.Context.Movies[i].Name == _currentMovie.Name)
@@ -96,11 +125,33 @@ namespace ExamenWPF.ViewModel
                     MovieDB.Context.Movies[i].YearOfRelease = _currentMovie.YearOfRelease;
                     MovieDB.Context.Movies[i].CountryOfIssue = _currentMovie.CountryOfIssue;
                     MovieDB.Context.Movies[i].FilmCompany = _currentMovie.FilmCompany;
+                    MovieDB.Context.Movies[i].Genre = _currentMovie.Genre;
                     return;
                 }
-                
+                else
+                {
+
+                }
             }
             MovieDB.Context.Movies.Add(_currentMovie);
+            
+        }
+        public bool IsValid()
+        {
+            if((CurrentMovie.Name == ""
+                || CurrentMovie.Teg == ""
+                || CurrentMovie.Description == ""
+                || CurrentMovie.CountryOfIssue == ""
+                || CurrentMovie.FilmCompany == "") 
+                || (CurrentMovie.Name == null
+                || CurrentMovie.Teg == null
+                || CurrentMovie.Description == null
+                || CurrentMovie.CountryOfIssue == null
+                || CurrentMovie.FilmCompany == null))
+            {
+                return false;
+            }
+            return true;
         }
 
     }

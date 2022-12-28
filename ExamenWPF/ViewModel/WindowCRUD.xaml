@@ -53,6 +53,16 @@
                          Text="{Binding Path=FilmCompany}"
                          FontSize="14"/>
             </GroupBox>
+            <GroupBox Header="Жанр"
+                      FontSize="17">
+                <ComboBox x:Name="GenreBox" SelectedItem="{Binding Path=CurrentMovie.Genre}">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding}"/>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+            </GroupBox>
         </StackPanel>
         <Grid Grid.Row="1">
             <UniformGrid Width="150"

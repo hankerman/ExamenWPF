@@ -80,6 +80,8 @@
                                     <LineBreak/>
                                     <Run Text="{Binding Path=CountryOfIssue}"/>
                                     <Run Text="{Binding Path=YearOfRelease, StringFormat=' {0} год'}"/>
+                                    <LineBreak/>
+                                    <Run Text="{Binding Path=Genre}"/>
                                 </TextBlock>
                                 <StackPanel Grid.Row="1">
                                     <TextBlock Text="{Binding Path=Description}"
@@ -92,6 +94,7 @@
                                     <TextBlock Text="{Binding Path=Teg}"
                                    TextAlignment="Center"
                                    TextWrapping="Wrap"/>
+                                    
                                 </StackPanel>
                             </Grid>
                         </Border>

@@ -27,22 +27,32 @@ namespace ExamenWPF.ViewModel
             _vm = new MovieCRUD_VM(movie);
             this.DataContext = _vm;
             this.Title = "Добавление";
+            GenreBox.ItemsSource = MovieDB.Context.Genre;
             if (movie != null)
             {
                 NameTextBox.IsReadOnly = true;
                 this.Title = "Изменение";
             }
         }
-
+        
         private void Clouse_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+            
         }
 
         private void Save_Click(object sender, RoutedEventArgs e)
         {
-            _vm.SaveMovie();
-            this.Close();
+            if (_vm.IsValid())
+            {
+                _vm.SaveMovie();
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Не все поля заполнены!", "ERROR", MessageBoxButton.OK);
+            }
+            
         }
     }
 }
